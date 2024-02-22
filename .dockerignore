@@ -1,0 +1,10 @@
+**/node_modules
+README.md
+# package.json
+build.sh
+Dockerfile.backend
+Dockerfile.frontend
+package-lock.json
+docker-compose.yml
+node_modules
+npm-debug.log

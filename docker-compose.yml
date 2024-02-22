@@ -6,7 +6,7 @@ services:
     image: furyhawk/osrm-backend:${OSRM_VERSION:-latest}
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.backend
     container_name: osrm-backend
     ports:
       - "5000:5000"
@@ -22,7 +22,10 @@ services:
       - OSRM_NOTIFY_FILEPATH=/data/osrm_notify.txt
 
   osrm_frontend:
-    image: osrm/osrm-frontend:latest
+    image: furyhawk/osrm-frontend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
     container_name: osrm-frontend
     # [TODO] Enable auto-restart when production-ready
     #restart: always
