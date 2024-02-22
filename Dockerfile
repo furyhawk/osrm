@@ -10,4 +10,6 @@ RUN osrm-extract -p /opt/car.lua sgmy-latest.osm.pbf
 
 RUN osrm-contract sgmy-latest.osrm
 
-CMD ["osrm-routed", "--algorithm", "ch", "--max-table-size", "10000", "--port", "80", "sgmy-latest.osrm"]
+EXPOSE 5000
+
+CMD ["osrm-routed", "--algorithm", "ch", "--max-table-size", "10000", "--port", "5000", "sgmy-latest.osrm"]
