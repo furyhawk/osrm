@@ -21,20 +21,20 @@ services:
       # Notify OSRM Manager to restart without stopping container
       - OSRM_NOTIFY_FILEPATH=/data/osrm_notify.txt
 
-  osrm_frontend:
-    image: furyhawk/osrm-frontend:latest
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    container_name: osrm-frontend
-    # [TODO] Enable auto-restart when production-ready
-    #restart: always
-    # FIXME https://github.com/Project-OSRM/osrm-frontend/issues/278
-    #command: npm run start-prod
-    ports:
-      - "5555:9966"
-    depends_on:
-      osrm-backend:
-        condition: service_started
-    environment:
-      - OSRM_BACKEND=http://localhost:5000
+  # osrm_frontend:
+  #   image: furyhawk/osrm-frontend:latest
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.frontend
+  #   container_name: osrm-frontend
+  #   # [TODO] Enable auto-restart when production-ready
+  #   #restart: always
+  #   # FIXME https://github.com/Project-OSRM/osrm-frontend/issues/278
+  #   #command: npm run start-prod
+  #   ports:
+  #     - "5555:9966"
+  #   depends_on:
+  #     osrm-backend:
+  #       condition: service_started
+  #   environment:
+  #     - OSRM_BACKEND=http://localhost:5000
